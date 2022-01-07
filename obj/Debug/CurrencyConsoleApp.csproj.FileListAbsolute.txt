@@ -1,0 +1,7 @@
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\bin\Debug\CurrencyConsoleApp.exe.config
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\bin\Debug\CurrencyConsoleApp.exe
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\bin\Debug\CurrencyConsoleApp.pdb
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\obj\Debug\CurrencyConsoleApp.csproj.AssemblyReference.cache
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\obj\Debug\CurrencyConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\obj\Debug\CurrencyConsoleApp.exe
+C:\Users\Serg\Documents\GitHub\CurrencyConsoleApp\obj\Debug\CurrencyConsoleApp.pdb

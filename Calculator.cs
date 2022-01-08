@@ -14,36 +14,60 @@ namespace CurrencyConsoleApp
         public decimal totalNewMyAccountValue;
         public decimal currencyNewMyAccountValue;
 
-
-        public decimal Calculation()
+                
+        public void Calculation()
         {
+            CurrencyChoice();
+
+            Console.WriteLine($"1 RUB = {currencyForExchange} {currencyChoice}");
+            Console.WriteLine("Need to change something? Y/N");
+
             yesNoChoice = Console.ReadLine();
 
             if (yesNoChoice == "Y")
             {
                 Console.WriteLine($"How many {currencyChoice} you neeed?");                
-                currencyValueForChange = Convert.ToDecimal(Console.ReadLine());
-                return currencyValueForChange;
+                currencyValueForChange = Convert.ToDecimal(Console.ReadLine());                
             }
             else
             {
                 Console.WriteLine($"Goodbye");
-                return 0M;
             }
+        }
+
+
+        public void CurrencyChoice()
+        {
+            currencyChoice = Console.ReadLine();
+
+            if (currencyChoice == "RUB")
+                currencyForExchange = exchangeRubValue;
+
+            else if (currencyChoice == "USD")
+                currencyForExchange = exchangeUsdValue;
+
+            else if (currencyChoice == "EUR")
+                currencyForExchange = exchangeEurValue;
+
+            else if (currencyChoice == "GRN")
+                currencyForExchange = exchangeGrnValue;
+            else
+                Console.WriteLine("Exception 002! You wrote the wrong value twice! Goodbye!");
+
+        }        
+
+
+        public void CurrencyNewMyAccountValue()
+        {
+            ChangeCurrency();
+            Console.Write($"You have: {newMyAccountValue} RUB and {currencyValueForChange} {currencyChoice}");
+                             
         }
 
 
         public decimal ChangeCurrency()
         {
-            currencyChoice = CurrencyChoice();
-
-            if (currencyChoice == "RUB")
-            {
-                return newMyAccountValue = myAccountValue - currencyValueForChange * exchangeRubValue;
-            }
-
-
-            else if (currencyChoice == "USD")
+            if (currencyChoice == "USD")
             {
                 return newMyAccountValue = myAccountValue - currencyValueForChange * exchangeUsdValue;
             }
@@ -53,20 +77,13 @@ namespace CurrencyConsoleApp
                 return newMyAccountValue = myAccountValue - currencyValueForChange * exchangeEurValue;
             }
 
-            else 
+            else if (currencyChoice == "GRN")
             {
                 return newMyAccountValue = myAccountValue - currencyValueForChange * exchangeGrnValue;
             }
-            
-        }
 
-
-        public decimal CurrencyNewMyAccountValue()
-        {
-            Console.Write($"You have: {newMyAccountValue} RUB and {currencyValueForChange} {currencyChoice}");
-
-
-            return totalNewMyAccountValue;
+            else
+                return myAccountValue;
         }
     }
 }

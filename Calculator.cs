@@ -19,6 +19,7 @@ namespace CurrencyConsoleApp
         {
             CurrencyChoice();
 
+
             Console.WriteLine($"1 RUB = {currencyForExchange} {currencyChoice}");
             Console.WriteLine("Need to change something? Y/N");
 
@@ -52,14 +53,14 @@ namespace CurrencyConsoleApp
             else if (currencyChoice == "GRN")
                 currencyForExchange = exchangeGrnValue;
             else
-                Console.WriteLine("Exception 002! You wrote the wrong value twice! Goodbye!");
-
-        }        
+                Console.WriteLine("Exception 001! You wrote the wrong value! Goodbye!");
+                
+        } 
 
 
         public void CurrencyNewMyAccountValue()
-        {
-            ChangeCurrency();
+        {           
+            ChangeCurrency();            
             Console.Write($"You have: {newMyAccountValue} RUB and {currencyValueForChange} {currencyChoice}");
                              
         }
@@ -67,6 +68,8 @@ namespace CurrencyConsoleApp
 
         public decimal ChangeCurrency()
         {
+            myAccountValue = Account.accountValue;
+
             if (currencyChoice == "USD")
             {
                 return newMyAccountValue = myAccountValue - currencyValueForChange * exchangeUsdValue;

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace CurrencyConsoleApp
 {
     public class Converter
-    {
-        public decimal myAccountValue = 1000000M;
+    {        
+        public decimal myAccountValue;
         public decimal exchangeRubValue = 1M;
         public decimal exchangeUsdValue = 75M;
         public decimal exchangeEurValue = 85M;
@@ -21,15 +21,19 @@ namespace CurrencyConsoleApp
         public decimal currencyForExchange;
         public string yesNoChoice;
 
+        
 
         public void StartApp()
         {
-            Console.WriteLine($"You have: {myAccountValue} {currencyRub}");
+            var account = new Account();
+            var calculator = new Calculator();            
+
+            Console.WriteLine("How much money do you have?");
+            account.AccountValue = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine($"You have: {account.AccountValue} {currencyRub}");
             Console.WriteLine("Wich currency you neeed:");
             Console.WriteLine($"{currencyUsd}, {currencyEur}, {currencyGrn}?");
-
-            
-            var calculator = new Calculator();
+                        
             calculator.Calculation();            
             calculator.CurrencyNewMyAccountValue();
             Console.ReadLine();

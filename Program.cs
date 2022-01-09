@@ -10,8 +10,8 @@ namespace CurrencyConsoleApp
     {
         static void Main(string[] args)
         {
-            var anInstanceofMyClass = new Converter();
-            anInstanceofMyClass.StartApp();
+            var startApp = new Converter();
+            startApp.StartApp();
         }
     }
 }

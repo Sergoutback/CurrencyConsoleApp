@@ -8,7 +8,18 @@ namespace CurrencyConsoleApp
 {
     public class Account
     {
-        decimal AccountValue { get; set; }
+        public static decimal accountValue { get; private set; }
 
+        public decimal AccountValue
+        {
+            set
+            {
+                if (value < 0)
+                    Console.WriteLine("Exception 003! You cannot have a negative value on your account.");
+                else
+                    accountValue = value;
+            }
+            get { return accountValue; }
+        }
     }
 }

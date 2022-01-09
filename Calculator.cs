@@ -17,6 +17,11 @@ namespace CurrencyConsoleApp
                 
         public void Calculation()
         {
+            var currencyParse = new CurrencyParse();
+            currencyParse.ParceUsdEur();
+            exchangeUsdValue = currencyParse.usd;
+            exchangeEurValue = currencyParse.euro;
+
             CurrencyChoice();
 
 
@@ -68,7 +73,7 @@ namespace CurrencyConsoleApp
 
         public decimal ChangeCurrency()
         {
-            myAccountValue = Account.accountValue;
+            myAccountValue = Account.accountValue;            
 
             if (currencyChoice == "USD")
             {

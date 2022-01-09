@@ -10,8 +10,8 @@ namespace CurrencyConsoleApp
     {        
         public decimal myAccountValue;
         public decimal exchangeRubValue = 1M;
-        public decimal exchangeUsdValue = 75M;
-        public decimal exchangeEurValue = 85M;
+        public decimal exchangeUsdValue;
+        public decimal exchangeEurValue;
         public decimal exchangeGrnValue = 0.3M;
         public string currencyRub = "RUB";
         public string currencyUsd = "USD";
@@ -26,15 +26,18 @@ namespace CurrencyConsoleApp
         public void StartApp()
         {
             var account = new Account();
-            var calculator = new Calculator();            
+            var calculator = new Calculator();
+            
 
             Console.WriteLine("How much money do you have?");
             account.AccountValue = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine($"You have: {account.AccountValue} {currencyRub}");
             Console.WriteLine("Wich currency you neeed:");
             Console.WriteLine($"{currencyUsd}, {currencyEur}, {currencyGrn}?");
-                        
-            calculator.Calculation();            
+
+            
+
+            calculator.Calculation();
             calculator.CurrencyNewMyAccountValue();
             Console.ReadLine();
         }

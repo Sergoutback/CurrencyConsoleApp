@@ -10,6 +10,8 @@ namespace CurrencyConsoleApp
     {
         public decimal usd;
         public decimal euro;
+        public decimal grnRub;
+        public decimal grnUsd = 27.21M;
 
         ///using System.Xml.Linq;
         public void ParceUsdEur()
@@ -17,12 +19,18 @@ namespace CurrencyConsoleApp
             WebClient client = new WebClient();
             var xml = client.DownloadString("https://www.cbr-xml-daily.ru/daily.xml");
             XDocument xdoc = XDocument.Parse(xml);
-            var el = xdoc.Element("ValCurs").Elements("Valute");
-            string dollar = el.Where(x => x.Attribute("ID").Value == "R01235").Select(x => x.Element("Value").Value).FirstOrDefault();
-            string eur = el.Where(x => x.Attribute("ID").Value == "R01239").Select(x => x.Element("Value").Value).FirstOrDefault();
-            Console.WriteLine($"Евро: {eur} Доллар: {dollar}");
-            usd = Convert.ToDecimal(dollar);
-            euro = Convert.ToDecimal(eur);
+            var element = xdoc.Element("ValCurs").Elements("Valute");
+            string dollar = element.Where(x => x.Attribute("ID").Value == "R01235").Select(x => x.Element("Value").Value).FirstOrDefault();
+            string eur = element.Where(x => x.Attribute("ID").Value == "R01239").Select(x => x.Element("Value").Value).FirstOrDefault();
+            // Console.WriteLine($"USD: {dollar} EUR: {eur}");
+            usd = Decimal.Parse(dollar.Replace(',', '.'));
+            euro = Decimal.Parse(eur.Replace(',', '.'));
+        }
+
+
+        public void ParceUsdgrn()
+        {
+            grnRub = usd / grnUsd;
         }
     }
 }

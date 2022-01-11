@@ -19,8 +19,11 @@ namespace CurrencyConsoleApp
         {
             var currencyParse = new CurrencyParse();
             currencyParse.ParceUsdEur();
+            currencyParse.ParceUsdgrn();
+            Console.WriteLine($"USD: {currencyParse.usd} EUR: {currencyParse.euro} GRN: {currencyParse.grnRub}");
             exchangeUsdValue = currencyParse.usd;
             exchangeEurValue = currencyParse.euro;
+            exchangeGrnValue = currencyParse.grnRub;
 
             CurrencyChoice();
 

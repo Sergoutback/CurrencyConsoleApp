@@ -29,7 +29,7 @@ namespace CurrencyConsoleApp
             var calculator = new Calculator();
             
 
-            Console.WriteLine("How much money do you have?");
+            Console.WriteLine($"How much money ({currencyRub}) do you have?");
             account.AccountValue = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine($"You have: {account.AccountValue} {currencyRub}");
             Console.WriteLine("Wich currency you neeed:");
